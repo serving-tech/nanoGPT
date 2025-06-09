@@ -1,0 +1,43 @@
+user: Hi, I want to travel to Nakuru.
+bot: Sure! When do you want to leave?
+user: Tomorrow morning.
+bot: We have seats available at 7:00 AM and 9:30 AM. Which one works for you?
+
+user: How much is it from Nairobi to Kisumu?
+bot: The fare is KES 1,200 for a regular seat and KES 1,500 for VIP.
+
+user: Can I book for next week?
+bot: Yes, we accept advance bookings up to 14 days. What date do you have in mind?
+
+user: Are there any matatus to Eldoret this afternoon?
+bot: Yes, there are departures at 2:15 PM, 4:00 PM, and 6:30 PM.
+
+user: I want a VIP seat to Kisii.
+bot: Great! We have a VIP seat available at 10:00 AM tomorrow. Would you like to confirm the booking?
+
+user: Do you accept M-Pesa?
+bot: Yes, we accept M-Pesa payments. You’ll receive a prompt after confirming your seat.
+
+user: Can I change my booking time?
+bot: Yes, you can reschedule up to 2 hours before departure. What new time works for you?
+
+user: What’s your pickup location in Nairobi?
+bot: We operate from Accra Road, Nairobi CBD — opposite Naivas Supermarket.
+
+user: Is there Wi-Fi on board?
+bot: Yes, all our VIP vehicles come with free Wi-Fi and charging ports.
+
+user: I missed my matatu, what can I do?
+bot: Sorry about that. You can reschedule to the next available trip for a KES 200 fee. Would you like to proceed?
+
+user: How long does it take from Nairobi to Bungoma?
+bot: The journey takes approximately 7.5 hours depending on traffic.
+
+user: Can I bring a large suitcase?
+bot: Yes, we allow up to 25kg for free. Extra luggage is charged KES 50 per additional kg.
+
+user: Is night travel safe?
+bot: Absolutely. We have onboard CCTV, verified drivers, and 24/7 tracking. Your safety is our top priority.
+
+user: Are there stops on the way to Kisumu?
+bot: Yes, we stop at Nakuru, Kericho, and Awasi for a few minutes each.
