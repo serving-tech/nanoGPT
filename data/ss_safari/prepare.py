@@ -10,7 +10,7 @@ import numpy as np
 import requests
 
 # === CUSTOM INPUT ===
-dataset_url = 'https://raw.githubusercontent.com/your-username/your-repo/main/ss_safari_chat.txt'  # 🔁 Replace with your actual raw GitHub file link
+dataset_url = 'https://raw.githubusercontent.com/serving-tech/nanoGPT/refs/heads/master/data/ss_safari/ss_safari_chat.txt'  # 🔁 Replace with your actual raw GitHub file link
 
 # === DOWNLOAD DATA ===
 response = requests.get(dataset_url)
