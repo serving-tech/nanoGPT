@@ -1,20 +1,23 @@
 """
 Prepare the SS-Safari chatbot dataset for character-level language modeling.
 Instead of GPT-2 BPE, we map characters to ints.
+This version fetches the dataset from a URL.
 """
 
 import os
 import pickle
 import numpy as np
+import requests
 
 # === CUSTOM INPUT ===
-input_file_path = os.path.join(os.path.dirname(__file__), 'ss_safari_chat.txt')
-if not os.path.exists(input_file_path):
-    raise FileNotFoundError(f"Dataset file not found at: {input_file_path}")
+dataset_url = 'https://raw.githubusercontent.com/your-username/your-repo/main/ss_safari_chat.txt'  # 🔁 Replace with your actual raw GitHub file link
 
-with open(input_file_path, 'r', encoding='utf-8') as f:
-    data = f.read()
-print(f"Length of dataset in characters: {len(data):,}")
+# === DOWNLOAD DATA ===
+response = requests.get(dataset_url)
+if response.status_code != 200:
+    raise Exception(f"Failed to download dataset. Status code: {response.status_code}")
+data = response.text
+print(f"✅ Dataset downloaded successfully. Length in characters: {len(data):,}")
 
 # Unique characters
 chars = sorted(list(set(data)))
@@ -43,9 +46,14 @@ val_ids = np.array(encode(val_data), dtype=np.uint16)
 print(f"Train has {len(train_ids):,} tokens")
 print(f"Val has {len(val_ids):,} tokens")
 
-# Save bin files
-train_ids.tofile(os.path.join(os.path.dirname(__file__), 'train.bin'))
-val_ids.tofile(os.path.join(os.path.dirname(__file__), 'val.bin'))
+# === SAVE OUTPUT FILES ===
+output_dir = os.path.dirname(__file__) if '__file__' in globals() else os.getcwd()
+train_path = os.path.join(output_dir, 'train.bin')
+val_path = os.path.join(output_dir, 'val.bin')
+meta_path = os.path.join(output_dir, 'meta.pkl')
+
+train_ids.tofile(train_path)
+val_ids.tofile(val_path)
 
 # Save vocab and mappings
 meta = {
@@ -53,7 +61,7 @@ meta = {
     'itos': itos,
     'stoi': stoi,
 }
-with open(os.path.join(os.path.dirname(__file__), 'meta.pkl'), 'wb') as f:
+with open(meta_path, 'wb') as f:
     pickle.dump(meta, f)
 
-print("✅ Tokenization complete. Files saved: train.bin, val.bin, meta.pkl")
+print(f"✅ Tokenization complete. Files saved: {train_path}, {val_path}, {meta_path}")
